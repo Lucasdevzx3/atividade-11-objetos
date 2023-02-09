@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+        Crie um cadastro de pessoas onde o usuário informe o nome, idade
+        e se está trabalhando ou não, se a pessoa estiver trabalhando
+        pergunte para ele o salário que está ganhando. Para cada pessoa
+        cadastrada, pergunte ao usuário se ele deseja continuar
+        cadastrando ou não. No final, mostre as pessoas que estão
+        desempregadas, as pessoas que estão empregadas separadas
+        pelas que ganham mais que 2500 e menos que 2500.
+
+        Exemplo de resultado:
+        Pessoas desempregadas:
+        Nome: Alessandro, Idade: 28
+        Nome: Alessandro, Idade: 28
+
+        Pessoas empregadas com salários menores que 2500:
+        Nome: Alessandro, Idade: 28, Salário: 1500
+        Nome: Alessandro, Idade: 28, Salário: 2400
+
+        Pessoas empregadas com salários maiores que 2500:
+        Nome: Alessandro, Idade: 28, Salário: 2700
+        Nome: Alessandro, Idade: 28, Salário: 3000
+        
+        let pessoas
+        let continuar true
+        while prompt nome da pessoa, idade, se esta trabalhando
+        if pessoa salario
+        let desempregado
+        let empregados baixo salario
+        let empregados alto salario
+        log para mostrar os resultados
+
+    -->
+    <script>
+      let pessoas = [];
+      let continuar = true;
+
+      while (continuar) {
+        let pessoa = {};
+        pessoa.nome = prompt("Informe o nome da pessoa:");
+        pessoa.idade = parseInt(prompt("Informe a idade da pessoa:"));
+        pessoa.trabalhando = confirm("A pessoa está trabalhando?");
+
+        if (pessoa.trabalhando) {
+          pessoa.salario = parseFloat(prompt("Informe o salário da pessoa:"));
+        }
+
+        pessoas.push(pessoa);
+        continuar = confirm("Deseja continuar cadastrando pessoas?");
+      }
+
+      let desempregados = [];
+      let empregadosBaixoSalario = [];
+      let empregadosAltoSalario = [];
+
+      for (let i = 0; i < pessoas.length; i++) {
+        let pessoa = pessoas[i];
+
+        if (!pessoa.trabalhando) {
+          desempregados.push(pessoa);
+        } else {
+          if (pessoa.salario < 2500) {
+            empregadosBaixoSalario.push(pessoa);
+          } else {
+            empregadosAltoSalario.push(pessoa);
+          }
+        }
+      }
+
+      console.log("Pessoas desempregadas:");
+      for (let i = 0; i < desempregados.length; i++) {
+        let pessoa = desempregados[i];
+        console.log(`Nome: ${pessoa.nome}, Idade: ${pessoa.idade}`);
+      }
+
+      console.log("\nPessoas empregadas com salários menores que 2500:");
+      for (let i = 0; i < empregadosBaixoSalario.length; i++) {
+        let pessoa = empregadosBaixoSalario[i];
+        console.log(
+          `Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Salário: ${pessoa.salario}`
+        );
+      }
+
+      console.log("\nPessoas empregadas com salários maiores que 2500:");
+      for (let i = 0; i < empregadosAltoSalario.length; i++) {
+        let pessoa = empregadosAltoSalario[i];
+        console.log(
+          `Nome: ${pessoa.nome}, Idade: ${pessoa.idade}, Salário: ${pessoa.salario}`
+        );
+      }
+    </script>
+  </body>
+</html>
