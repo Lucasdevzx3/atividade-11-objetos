@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+
+    -->
+    <script>
+      const alunos = [
+        {
+          nome: "Aluno 1",
+          idade: 20,
+          skills: ["JavaScript", "React", "Node.js"],
+        },
+        {
+          nome: "Aluno 2",
+          idade: 25,
+          skills: ["JavaScript", "React", "Vue.js"],
+        },
+        {
+          nome: "Aluno 3",
+          idade: 22,
+          skills: ["JavaScript", "Angular", "Node.js"],
+        },
+        {
+          nome: "Aluno 4",
+          idade: 21,
+          skills: ["TypeScript", "Vue.js", "React"],
+        },
+        {
+          nome: "Aluno 5",
+          idade: 23,
+          skills: ["JavaScript", "React", "Node.js"],
+        },
+      ];
+
+      function buscarPorSkill(alunos, skill) {
+        const resultado = [];
+        for (let i = 0; i < alunos.length; i++) {
+          if (alunos[i].skills.includes(skill)) {
+            resultado.push(alunos[i]);
+          }
+        }
+        return resultado;
+      }
+
+      const resultadoDaBusca = buscarPorSkill(alunos, "JavaScript");
+      console.log(resultadoDaBusca);
+    </script>
+  </body>
+</html>
